@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linking the external CSS file -->
+    <!-- FontAwesome for Eye Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login Page</h2>
+        <div class="input-container">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+            <span id="username-error" class="error-message"></span>
+        </div>
+        <div class="input-container">
+            <label for="password">Password:</label>
+            <div class="password-wrapper">
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <i class="fas fa-eye" id="toggle-password"></i> <!-- Eye Icon -->
+            </div>
+            <span id="password-error" class="error-message"></span>
+        </div>
+        <div class="submit-container">
+            <button type="button" id="loginBtn">Login</button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        const togglePassword = document.getElementById('toggle-password');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Form validation and hardcoded credentials check
+        const loginBtn = document.getElementById('loginBtn');
+        const usernameError = document.getElementById('username-error');
+        const passwordError = document.getElementById('password-error');
+
+        loginBtn.addEventListener('click', function() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Clear previous error messages
+            usernameError.textContent = '';
+            passwordError.textContent = '';
+
+            // Hardcoded credentials
+            const validUsername = 'parking';
+            const validPassword = 'shasun';
+
+            if (username === '') {
+                usernameError.textContent = 'Username is required';
+            } else if (password === '') {
+                passwordError.textContent = 'Password is required';
+            } else if (username === validUsername && password === validPassword) {
+                // Redirect to the next page on successful login
+                window.location.href = 'video.html';
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+    </script>
+
+</body>
+</html>

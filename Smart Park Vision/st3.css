@@ -1,0 +1,25 @@
+/* Background image styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('wp1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Video container styling */
+.video-container {
+    position: relative;
+    width: 80%;  /* Change this value to adjust width */
+    max-width: 900px; /* Change this value to set a maximum limit */
+}
+
+/* Video styling */
+video {
+    width: 100%;
+    border-radius: 10px; /* Optional: adds rounded corners to the video */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional: shadow effect */
+}
